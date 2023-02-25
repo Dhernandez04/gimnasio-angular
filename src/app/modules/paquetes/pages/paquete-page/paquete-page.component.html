@@ -1,0 +1,74 @@
+<div class="row justify-content-between">
+    <div class="col-md-3">
+        <h3 class="title"> Servicios</h3>
+    </div>
+    <!-- <div class="col-md-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-end">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Library</li>
+            </ol>
+          </nav>
+    </div> -->
+</div>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between">
+        <div class="col-md-8 d-flex gap-3">
+            <!-- <button class="btn btn-default">
+                Activos
+            </button>
+            <button class="btn btn-default">
+                Inactivos
+            </button> -->
+            <!-- <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="Escribe para buscar">
+            </div>
+            <button class="btn btn-success">
+                Exportar
+            </button> -->
+        </div>
+        <div class="col-md-4 d-flex justify-content-end">
+            <a [routerLink]="['nuevo-paquete']" class="btn btn-primary">Nuevo</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Acciones</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Fecha Inicio</th>
+                <th scope="col">Fecha Fecha fin</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let paquete of listaPaquetes">
+                <td  scope="row" class="w160 align-middle">
+            
+                   
+                      <a [routerLink]="['actualizar/'+paquete?.id]"  class="btn btn-warning">
+                        <i class="fa fa-light fa-pen-to-square"></i>
+                      </a>&nbsp;
+                      <button (click)="abrirModalImagen(paquete)" class="btn btn-primary">
+                        <i class="fa fa-light fa-image"></i>
+                      </button>&nbsp;
+                      <button (click)="eliminarPaquete(paquete?.id)" class="btn btn-danger">
+                        <i class="fa fa-light fa-trash" ></i>
+                      </button>
+                </td>
+                <td scope="row"><img class="img-thumbnail rounded" width="100" height="50" [src]="paquete?.imagen?.pathUrl" alt=""></td>
+                <td scope="row">{{paquete?.nombre}}</td>
+                <td>{{paquete?.descripcion | slice : 0 : 43 }} ...</td>
+                <td>{{paquete?.precio |  currency : 'COP'}}</td>
+                <td>{{paquete?.fechaInicio | date:'medium'}}</td>
+                <td>{{paquete?.fechaFin | date:'medium'}}</td>
+               
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

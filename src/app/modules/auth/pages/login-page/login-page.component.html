@@ -1,0 +1,48 @@
+<div class="auth">
+    <figure class="figure">
+        <img class="img" src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1082&q=80" alt="">
+    </figure>
+    <div class="auth__content">
+        <img class="img__mobile" src="https://cdn-icons-png.flaticon.com/512/4262/4262730.png" alt="icono">
+        <h1 class="title">GymApp</h1>
+        <p><b>Usuario</b>:EdJ5lbr0</p>
+        <p><b>Contrase&ntilde;a</b>: 12345678</p>
+        <form class="form" [formGroup]="loginForm" (submit)="enviarFormulario()">
+            <div class="form__header">
+                <h3 class="subtitle">Bienvenido</h3>
+                <h3 class="title">Inicia Sesion con  tu cuenta</h3>
+            </div>
+            <div class="form__body">
+                <div class="mb-3">
+                    <label for="usuario">Usuario</label>
+                    <input type="text"
+                     class="form-control"
+                      id="usuario" 
+                      placeholder="Ingresar usuario"
+                      formControlName="usuario"
+                      >
+                    <p class="text-danger" *ngIf="validarCampo('usuario')">Debe ingresar el usuario.</p>
+                </div>
+                <div class="mb-3">
+                    <label for="password">Contrase&ntilde;a</label>
+                    <input type="password"
+                       id="password"
+                       class="form-control"
+                       placeholder="Ingresar contrase&ntilde;a"
+                       formControlName="password"
+                       >
+                    <p class="text-danger" *ngIf="validarCampo('password')">Debe ingresar la contrase&ntilde;a.</p>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+                </div>
+            </div>
+         
+            <p>No tienes una cuenta ? <a [routerLink]="['/registro']" routerLinkActive="router-link-active" >Crear cuenta</a></p>
+        </form>
+        <p class="footer">Todos los derechos reservados 2023 - Deimer Hernandez</p>
+        
+      
+    </div>
+
+</div>
